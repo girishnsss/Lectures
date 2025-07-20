@@ -26,6 +26,31 @@ body {
     padding: 0 20px;
 }
 
+/* Animated body background */
+body {
+    animation: backgroundColorChange 20s infinite;
+}
+
+@keyframes backgroundColorChange {
+    0% { background-color: #f8fafc; }
+    20% { background-color: #fef3c7; }
+    40% { background-color: #ddd6fe; }
+    60% { background-color: #cffafe; }
+    80% { background-color: #d1fae5; }
+    100% { background-color: #f8fafc; }
+}
+
+/* Smooth color transitions for sections */
+.about, .contact {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+.projects {
+    background: transparent;
+}
+
+
 /* Navigation */
 .navbar {
     background: var(--white);
