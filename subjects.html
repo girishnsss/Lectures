@@ -1,48 +1,97 @@
-<!-- Subjects Section -->
-<section id="subjects" class="subjects">
-  <div class="container">
-    <h2 class="section-title">Subjects I Teach / Study</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjects - Your Name</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation (same as index.html) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Your Name</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="subjects.html" class="nav-link active">Subjects</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-    <div class="subjects-grid">
-      <!-- Subject 1 -->
-      <div class="subject-card">
-        <i class="fa-solid fa-brain subject-icon"></i>
-        <h3 class="subject-title">Machine Learning</h3>
-        <p class="subject-text">
-          Supervised &amp; unsupervised algorithms, model evaluation, feature engineering,
-          and production ML pipelines built with scikit-learn.
-        </p>
-      </div>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>My Subjects</h1>
+            <p>Explore the topics I teach and specialize in</p>
+        </div>
+    </section>
 
-      <!-- Subject 2 -->
-      <div class="subject-card">
-        <i class="fa-solid fa-chart-line subject-icon"></i>
-        <h3 class="subject-title">Data Science</h3>
-        <p class="subject-text">
-          Data wrangling, exploratory analysis, hypothesis testing, and storytelling with
-          Python, Pandas, NumPy, and Matplotlib / Seaborn.
-        </p>
-      </div>
+    <!-- Subjects Content -->
+    <section class="subjects-page">
+        <div class="container">
+            <div class="subjects-grid">
+                <!-- Subject 1 -->
+                <div class="subject-card">
+                    <i class="fa-solid fa-brain subject-icon"></i>
+                    <h3 class="subject-title">Machine Learning</h3>
+                    <p class="subject-text">
+                        Supervised & unsupervised algorithms, model evaluation, feature engineering,
+                        and production ML pipelines built with scikit-learn.
+                    </p>
+                    <a href="#" class="subject-link">Learn More →</a>
+                </div>
 
-      <!-- Subject 3 -->
-      <div class="subject-card">
-        <i class="fa-solid fa-robot subject-icon"></i>
-        <h3 class="subject-title">Artificial Intelligence</h3>
-        <p class="subject-text">
-          Search &amp; planning, knowledge representation, reinforcement learning, and
-          ethical considerations in modern AI systems.
-        </p>
-      </div>
+                <!-- Subject 2 -->
+                <div class="subject-card">
+                    <i class="fa-solid fa-chart-line subject-icon"></i>
+                    <h3 class="subject-title">Data Science</h3>
+                    <p class="subject-text">
+                        Data wrangling, exploratory analysis, hypothesis testing, and storytelling with
+                        Python, Pandas, NumPy, and Matplotlib.
+                    </p>
+                    <a href="#" class="subject-link">Learn More →</a>
+                </div>
 
-      <!-- Subject 4 -->
-      <div class="subject-card">
-        <i class="fa-solid fa-network-wired subject-icon"></i>
-        <h3 class="subject-title">Deep Learning</h3>
-        <p class="subject-text">
-          Neural networks, CNNs, RNNs, transformers, and deploying models with TensorFlow
-          &amp; Keras on cloud GPUs.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+                <!-- Subject 3 -->
+                <div class="subject-card">
+                    <i class="fa-solid fa-robot subject-icon"></i>
+                    <h3 class="subject-title">Artificial Intelligence</h3>
+                    <p class="subject-text">
+                        Search & planning, knowledge representation, reinforcement learning, and
+                        ethical considerations in modern AI systems.
+                    </p>
+                    <a href="#" class="subject-link">Learn More →</a>
+                </div>
+
+                <!-- Subject 4 -->
+                <div class="subject-card">
+                    <i class="fa-solid fa-network-wired subject-icon"></i>
+                    <h3 class="subject-title">Deep Learning</h3>
+                    <p class="subject-text">
+                        Neural networks, CNNs, RNNs, transformers, and deploying models with TensorFlow
+                        & Keras on cloud GPUs.
+                    </p>
+                    <a href="#" class="subject-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
