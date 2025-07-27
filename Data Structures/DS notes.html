@@ -1,1 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Computer Science Notes</title>
+    
+    <style>
+        /* Basic Page Reset and Font */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            height: 100%;
+            overflow: hidden; /* Prevents double scrollbars */
+            background-color: #f0f2f5;
+        }
+
+        /* Main container using Flexbox for two-column layout */
+        .container {
+            display: flex;
+            height: 100vh; /* Full viewport height */
+        }
+
+        /* Left Sidebar Styling */
+        .sidebar {
+            flex: 0 0 320px; /* Sidebar width, doesn't grow or shrink */
+            background-color: #ffffff;
+            padding: 20px;
+            overflow-y: auto; /* Allow scrolling if content is long */
+            border-right: 1px solid #dcdcdc;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+        }
+        
+        .sidebar h1 {
+            font-size: 1.5em;
+            color: #333;
+            margin-top: 0;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 10px;
+        }
+
+        .sidebar h2 {
+            font-size: 1.1em;
+            color: #555;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .sidebar li a {
+            display: block;
+            padding: 10px 15px;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .sidebar li a:hover {
+            background-color: #e9ecef;
+        }
+
+        /* Style for the currently active link */
+        .sidebar li a.active {
+            background-color: #007BFF;
+            color: white;
+            font-weight: 500;
+        }
+
+        /* Main Content Area Styling */
+        .content-area {
+            flex: 1; /* Takes up the remaining space */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* The PDF Viewer (iframe) */
+        #pdf-viewer {
+            flex-grow: 1; /* The iframe grows to fill the content area */
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Welcome message before a PDF is selected */
+        #welcome-message {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-size: 1.5em;
+            color: #888;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- LEFT SIDEBAR FOR NAVIGATION -->
+        <nav class="sidebar">
+            <h1>CS Topics</h1>
+            
+            <h2>Natural Language Processing</h2>
+            <ul>
+                <!-- IMPORTANT: The data-pdf-src attribute holds the path to your PDF -->
+                <li><a href="#" data-pdf-src="pdfs/nlp_preprocessing.pdf">Text Preprocessing</a></li>
+                <li><a href="#" data-pdf-src="pdfs/nlp_parsing.pdf">Parsing Documents</a></li>
+                <li><a href="#" data-pdf-src="pdfs/nlp_semantics.pdf">Semantic Parsing</a></li>
+                <li><a href="#" data-pdf-src="pdfs/nlp_language_models.pdf">Language Models</a></li>
+            </ul>
+
+            <h2>Data Structures & Algorithms</h2>
+            <ul>
+                <li><a href="#" data-pdf-src="pdfs/dsa_sorting_searching.pdf">Sorting & Searching</a></li>
+                <li><a href="#" data-pdf-src="pdfs/dsa_linked_lists.pdf">Linked Lists</a></li>
+                <li><a href="#" data-pdf-src="pdfs/dsa_stacks_queues.pdf">Stacks & Queues</a></li>
+                <li><a href="#" data-src-pdf="pdfs/dsa_nonlinear.pdf">Nonlinear Data Structures</a></li>
+            </ul>
+            
+            <h2>Automata Theory</h2>
+            <ul>
+                <li><a href="#" data-pdf-src="pdfs/automata_finite.pdf">Finite Automata</a></li>
+                <li><a href="#" data-pdf-src="pdfs/automata_regex.pdf">Regular Expressions</a></li>
+                <li><a href="#" data-pdf-src="pdfs/automata_cfg.pdf">Context-Free Grammars</a></li>
+                <li><a href="#" data-pdf-src="pdfs/automata_turing.pdf">Turing Machines</a></li>
+            </ul>
+        </nav>
+
+        <!-- RIGHT CONTENT AREA FOR DISPLAYING THE PDF -->
+        <main class="content-area">
+            <!-- This message shows up first -->
+            <div id="welcome-message">
+                <p>Please select a topic from the left to view the notes.</p>
+            </div>
+            
+            <!-- The iframe for the PDF will be shown here. It's hidden initially. -->
+            <iframe id="pdf-viewer" style="display: none;"></iframe>
+        </main>
+    </div>
+
+    <script>
+        // Wait until the HTML document is fully loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            // Get references to all the important elements
+            const links = document.querySelectorAll('.sidebar a');
+            const pdfViewer = document.getElementById('pdf-viewer');
+            const welcomeMessage = document.getElementById('welcome-message');
+
+            // Add a click event listener to each link in the sidebar
+            links.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    // Prevent the link from navigating to a new page
+                    event.preventDefault();
+
+                    // --- 1. Update the PDF viewer ---
+                    const pdfSrc = this.getAttribute('data-pdf-src');
+                    if (pdfSrc) {
+                        pdfViewer.src = pdfSrc;
+                        
+                        // Hide the welcome message and show the PDF viewer
+                        welcomeMessage.style.display = 'none';
+                        pdfViewer.style.display = 'block';
+                    }
+
+                    // --- 2. Highlight the active link ---
+                    // First, remove the 'active' class from all links
+                    links.forEach(l => l.classList.remove('active'));
+                    // Then, add the 'active' class to the one that was just clicked
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
 
