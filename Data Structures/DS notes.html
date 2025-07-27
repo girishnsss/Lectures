@@ -40,16 +40,10 @@
             padding-bottom: 10px;
         }
 
-        .sidebar h2 {
-            font-size: 1.1em;
-            color: #555;
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-
         .sidebar ul {
             list-style: none;
             padding: 0;
+            margin-top: 20px;
         }
         
         .sidebar li a {
@@ -106,13 +100,17 @@
         <nav class="sidebar">
             <h1>Data Structures</h1>
             
-                <li><a href="#" data-pdf-src="Data Structures/Introduction.pdf">Introduction</a></li>
-                <li><a href="#" data-pdf-src="Data Structures/DSA - 1.pdf">Searching & Sorting</a></li>
-                <li><a href="#" data-pdf-src="Data Structures/DSA - 2.pdf">Dynamic Memory Location and Linked Lists</a></li>
-                <li><a href="#" data-src-pdf="Data Structures/DSA - 3.pdf">Stacks</a></li>
-                <li><a href="#" data-src-pdf="Data Structures/DSA - 4.pdf">Queues</a></li>
-                <li><a href="#" data-src-pdf="Data Structures/DSA - 3.pdf">Trees & Graphs</a></li>
+            <!-- FIX 1: Added the opening <ul> tag here -->
+            <ul>
+                <li><a href="Data Structures/Introduction.pdf" data-pdf-src="Data Structures/Introduction.pdf">Introduction</a></li>
+                <li><a href="Data Structures/DSA - 1.pdf" data-pdf-src="Data Structures/DSA - 1.pdf">Searching & Sorting</a></li>
+                <li><a href="Data Structures/DSA - 2.pdf" data-pdf-src="Data Structures/DSA - 2.pdf">Dynamic Memory Location and Linked Lists</a></li>
+                <!-- FIX 2: Corrected 'data-src-pdf' to 'data-pdf-src' on the next three lines -->
+                <li><a href="Data Structures/DSA - 3.pdf" data-pdf-src="Data Structures/DSA - 3.pdf">Stacks</a></li>
+                <li><a href="Data Structures/DSA - 4.pdf" data-pdf-src="Data Structures/DSA - 4.pdf">Queues</a></li>
+                <li><a href="Data Structures/DSA - 5.pdf" data-pdf-src="Data Structures/DSA - 5.pdf">Trees & Graphs</a></li> <!-- Corrected this path to DSA-5 as well, assuming it's a different file -->
             </ul>
+        </nav>
             
         <!-- RIGHT CONTENT AREA FOR DISPLAYING THE PDF -->
         <main class="content-area">
@@ -127,34 +125,26 @@
     </div>
 
     <script>
-        // Wait until the HTML document is fully loaded
         document.addEventListener('DOMContentLoaded', function () {
             
-            // Get references to all the important elements
             const links = document.querySelectorAll('.sidebar a');
             const pdfViewer = document.getElementById('pdf-viewer');
             const welcomeMessage = document.getElementById('welcome-message');
 
-            // Add a click event listener to each link in the sidebar
             links.forEach(link => {
                 link.addEventListener('click', function (event) {
-                    // Prevent the link from navigating to a new page
                     event.preventDefault();
 
-                    // --- 1. Update the PDF viewer ---
-                    const pdfSrc = this.getAttribute('data-pdf-src');
+                    // This line gets the attribute. It failed on 3 links because of the typo.
+                    const pdfSrc = this.getAttribute('data-pdf-src'); 
+
                     if (pdfSrc) {
                         pdfViewer.src = pdfSrc;
-                        
-                        // Hide the welcome message and show the PDF viewer
                         welcomeMessage.style.display = 'none';
                         pdfViewer.style.display = 'block';
                     }
 
-                    // --- 2. Highlight the active link ---
-                    // First, remove the 'active' class from all links
                     links.forEach(l => l.classList.remove('active'));
-                    // Then, add the 'active' class to the one that was just clicked
                     this.classList.add('active');
                 });
             });
@@ -163,4 +153,3 @@
 
 </body>
 </html>
-
