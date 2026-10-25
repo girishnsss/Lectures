@@ -1,327 +1,123 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Subjects - N S S S Girish Kumar</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subjects - N S S S Girish Kumar</title>
+  <link rel="stylesheet" href="https://girishnsss.github.io/Lectures/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Subject cards: keep every subject in the same grid and align their bottoms. */
+    .subjects-page { padding: 2rem 0; }
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+    .subject-card {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+      min-width: 0;
+      padding: 1.5rem 1.15rem;
+      text-align: center;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
+    }
+    .subject-icon { font-size: 1.8rem; margin-bottom: .8rem; color: #2864ff; }
+    .subject-title { margin: 0 0 .75rem; line-height: 1.4; font-size: 1.05rem; }
+    .subject-text { margin: 0 0 1rem; line-height: 1.6; font-size: .9rem; overflow-wrap: anywhere; }
+    .subject-link { margin-top: auto; display: inline-block; }
+    @media (max-width: 900px) {
+      .subjects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      .subjects-grid { grid-template-columns: 1fr; }
+      .subject-card { padding: 1.4rem; }
+    }
+  </style>
 </head>
-
 <body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">N S S S Girish Kumar</a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="subjects.html" class="nav-link active">Subjects</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="hamburger" aria-label="Toggle navigation" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Navigation (same as index.html) -->
+  <section class="page-header">
+    <div class="container">
+      <h1>My Subjects</h1>
+      <p>Explore the topics I teach and specialize in</p>
+    </div>
+  </section>
 
-    <nav class="navbar">
+  <section class="subjects-page">
+    <div class="container">
+      <div class="subjects-grid">
+        <article class="subject-card">
+          <i class="fa-solid fa-chart-line subject-icon" aria-hidden="true"></i>
+          <h3 class="subject-title">Data Structures</h3>
+          <p class="subject-text">Sorting and searching, hashing, linked lists, stacks, queues, trees, graphs, and expression processing.</p>
+          <a href="Data%20Structures/DS%20notes.html" class="subject-link">Learn More →</a>
+        </article>
 
-        <div class="nav-container">
+        <article class="subject-card">
+          <i class="fa-solid fa-brain subject-icon" aria-hidden="true"></i>
+          <h3 class="subject-title">Natural Language Processing</h3>
+          <p class="subject-text">Text preprocessing, tokenization, stemming and lemmatization, parsing, language models, RNNs, and Transformers.</p>
+          <a href="NLP/NLP%20Notes.html" class="subject-link">Learn More →</a>
+        </article>
 
-            <a href="index.html" class="nav-logo">N S S S Girish Kumar</a>
+        <article class="subject-card">
+          <i class="fa-solid fa-laptop-code subject-icon" aria-hidden="true"></i>
+          <h3 class="subject-title">Programming for Problem Solving</h3>
+          <p class="subject-text">C programming fundamentals, control statements, arrays, strings, functions, recursion, structures, pointers, file handling, searching, sorting, and complexity analysis.</p>
+          <a href="Programming%20for%20Problem%20Solving/PPS%20notes.html" class="subject-link">Learn More →</a>
+        </article>
 
-            <ul class="nav-menu">
+        <article class="subject-card">
+          <i class="fa-solid fa-wand-magic-sparkles subject-icon" aria-hidden="true"></i>
+          <h3 class="subject-title">Generative AI</h3>
+          <p class="subject-text">Transformers, GPT, GANs, VAEs, and multimodal AI for generating text, images, audio, and video.</p>
+          <a href="GenAI/GenAI%20Notes.html" class="subject-link">Learn More →</a>
+        </article>
+      </div>
+    </div>
+  </section>
 
-                <li><a href="index.html" class="nav-link">Home</a></li>
-
-                <li><a href="index.html#about" class="nav-link">About</a></li>
-
-                <li><a href="subjects.html" class="nav-link active">Subjects</a></li>
-
-                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
-
-            </ul>
-
-            <div class="hamburger">
-
-                <span></span>
-
-                <span></span>
-
-                <span></span>
-
-            </div>
-
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-content">
+        <p class="contact-text">I'm always interested in hearing about new publications and opportunities.</p>
+        <div class="contact-info">
+          <a href="mailto:girishkumar.nistala@gmail.com" class="contact-item"><span>📧</span> girishkumar.nistala@gmail.com</a>
+          <a href="https://www.linkedin.com/in/girishkumarnsss/" class="contact-item" target="_blank" rel="noopener noreferrer"><span>💼</span> LinkedIn</a>
+          <a href="https://github.com/girishnsss" class="contact-item" target="_blank" rel="noopener noreferrer"><span>💻</span> GitHub</a>
+          <a href="https://www.youtube.com/@girishlectures" class="contact-item" target="_blank" rel="noopener noreferrer"><span><i class="fa-brands fa-youtube" aria-hidden="true"></i></span> YouTube</a>
         </div>
-
-    </nav>
-
-
-
-    <!-- Page Header -->
-
-    <section class="page-header">
-
-        <div class="container">
-
-            <h1>My Subjects</h1>
-
-            <p>Explore the topics I teach and specialize in</p>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- Subjects Content -->
-
-    <section class="subjects-page">
-
-        <div class="container">
-
-            <div class="subjects-grid">
-
-                <!-- Subject 1 -->
-
-                <div class="subject-card">
-
-                    <i class="fa-solid fa-chart-line subject-icon"></i>
-
-                    <h3 class="subject-title">Data Structures</h3>
-
-                    <p class="subject-text">
-
-                        Quick Sort, Merge Sort, Heap Sort, Insertion Sort,
-
-                        Linear Search, Binary Search, Hashing (Hash Tables)
-
-                        Singly Linked List, Doubly Linked List, Circular Linked List,
-
-                        Function Call Management using Stacks, Undo/Redo Functionality,
-
-                        Expression Evaluation/Parsing, Simple Queue, Circular Queue, Dequeue,
-
-                        Trees & Graphs
-
-                    </p>
-
-                    <a href="Data Structures/DS notes.html" class="subject-link">Learn More →</a>
-
-                </div>
-
-
-
-                <!-- Subject 2 -->
-
-                <div class="subject-card">
-
-                    
-
-                    <i class="fa-solid fa-brain subject-icon"></i>
-
-                    <h3 class="subject-title">Natural Language Processing</h3>
-
-                    <p class="subject-text">
-
-                        Tokenization,Sentence segmentation, Lower-casing, punctuation removal, 
-
-                        stop-word filteringm Stemming or lemmatization, Handling misspellings, 
-
-                        emojis, HTML tags, Constituency parsing, Dependency parsing, Shallow Parsing,
-
-                        Rule-based semantic grammars, Statistical or neural sequence-to-sequence models,
-
-                        Pretrained language models, n-gram models, Recurrent Neural Networks,
-
-                        Transformer-based models, Applications
-
-                    </p>
-
-                    <a href="NLP/NLP Notes.html" class="subject-link">Learn More →</a>
-
-                </div>
-
-
-
-                <!-- Subject 3 -->
-
-           <!--     <div class="subject-card">
-
-                    <i class="fa-solid fa-robot subject-icon"></i>
-
-                    <h3 class="subject-title">Formal Languages & Automata Theory</h3>
-
-                    <p class="subject-text">
-
-                        Finite Automata, Types of Automata, Regular Languages, Differences,
-
-                        Conversions, Types of Machines - Moore & Mealy,
-
-                        Regular Expressions, Grammar, CNF, GNF, Push Down Automata,
-
-                        Turing Machines
-
-                    </p>
-
-                    <a href="#" class="subject-link">Learn More →</a>
-
-                </div> -->
-
-                 
-
-                <!-- Subject 4 -->
-
-                <div class="subject-card">
-
-                   <i class="fa-solid fa-laptop-code subject-icon"></i>
-
-                    <h3 class="subject-title">Programming for Problem Solving</h3>
-
-                    <p class="subject-text">
-
-                        Algorithmic approach, flowcharts, top-down & bottom-up strategies, 
-
-                        C program structure, data types, operators, conditional statements (if, switch), 
-
-                        loops (while, for), and jump statements. 1D and 2D Arrays, declaration and initialization, 
-
-                        reading and writing, manipulating elements, String handling functions, 
-
-                        and handling two-dimensional strings. Function calls, recursion, storage classes, 
-
-                        passing arrays to functions, pre-processor directives. Structures, 
-
-                        Unions, arrays of structures, and accessing members.
-
-                        Pointer arithmetic, parameter passing, pointers to arrays and structures. 
-
-                        File handling (opening, closing, I/O operations), random access in files, 
-
-                        and command line arguments. Time and Space Complexity, Linear Search, Binary Search, 
-
-                        Bubble Sort, Selection Sort, Insertion Sort, and Quick Sort algorithms.
-
-                    </p>
-
-                    <a href="Programming for Problem Solving/PPS notes.html" class="subject-link">Learn More →</a>
-
-                </div>
-
-                    <svg width="70" height="70" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-
-  <circle cx="50" cy="50" r="40" stroke="#6A5AE0" stroke-width="5" fill="none"/>
-
-  
-
-  <!-- nodes -->
-
-  <circle cx="35" cy="35" r="5" fill="#6A5AE0"/>
-
-  <circle cx="65" cy="35" r="5" fill="#6A5AE0"/>
-
-  <circle cx="35" cy="65" r="5" fill="#6A5AE0"/>
-
-  <circle cx="65" cy="65" r="5" fill="#6A5AE0"/>
-
-  <circle cx="50" cy="50" r="5" fill="#6A5AE0"/>
-
-
-
-  <!-- connections -->
-
-  <line x1="35" y1="35" x2="50" y2="50" stroke="#6A5AE0" stroke-width="4" stroke-linecap="round"/>
-
-  <line x1="65" y1="35" x2="50" y2="50" stroke="#6A5AE0" stroke-width="4" stroke-linecap="round"/>
-
-  <line x1="35" y1="65" x2="50" y2="50" stroke="#6A5AE0" stroke-width="4" stroke-linecap="round"/>
-
-  <line x1="65" y1="65" x2="50" y2="50" stroke="#6A5AE0" stroke-width="4" stroke-linecap="round"/>
-
-</svg>
-
-
-
-                    <h3 class="subject-title">Generative AI</h3>
-
-                    <p class="subject-text">
-
-                        Generative AI: Transformers, GANs, VAEs, DALL·E 2, GPT models, CycleGANs, and multimodal generation.
-
-                        Understand how AI generates text, images, video, and music using modern deep learning models.
-
-                    </p>
-
-                    <a href="GenAI/GenAI Notes.html" class="subject-link">Learn More →</a>
-
-                </div>
-
-                
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <section id="contact" class="contact">
-
-        <div class="container">
-
-            <h2 class="section-title">Get In Touch</h2>
-
-            <div class="contact-content">
-
-                <p class="contact-text">I'm always interested in hearing about new publications and opportunities.</p>
-
-                <div class="contact-info">
-
-                    <a href="mailto:girishkumar.nistala@gmail.com" class="contact-item">
-
-                        <span>📧</span> girishkumar.nistala@gmail.com
-
-                    </a>
-
-                    <a href="https://www.linkedin.com/in/girishkumarnsss/" class="contact-item">
-
-                        <span>💼</span> LinkedIn
-
-                    </a>
-
-                    <a href="https://github.com/girishnsss" class="contact-item">
-
-                        <span>💻</span> GitHub
-
-                    </a>
-
-
-
-                    <a href="https://www.youtube.com/@girishlectures" class="contact-item">
-
-                        <span><i class="fa-brands fa-youtube"></i> </span> Youtube
-
-                    </a>
-
-                    
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- Footer -->
-
-    <footer class="footer">
-
-        <p>&copy; 2025 N S S S Girish Kumar. All rights reserved.</p>
-
-    </footer>
-
-
-
-    <script src="script.js"></script>
-
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 N S S S Girish Kumar. All rights reserved.</p>
+  </footer>
+
+  <script src="https://girishnsss.github.io/Lectures/script.js"></script>
 </body>
-
 </html>
